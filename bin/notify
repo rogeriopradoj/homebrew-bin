@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if ! hash terminal-notifier 2>/dev/null; then
+    echo "terminal-notifier not found (Project page: https://github.com/alloy/terminal-notifier)";
+    exit 1
+fi
+
+[[ "$1" == "" ]] && MESSAGE="Done" || MESSAGE="$1"
+
+terminal-notifier -message "$MESSAGE" -title "Notify from [$(pwd)]" -sound "default" -activate "com.googlecode.iterm2";
