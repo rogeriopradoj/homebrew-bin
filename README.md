@@ -53,3 +53,25 @@ $ utf8 text.txt # not-utf8, i.e. iso-8859-1
 # Final file: _text.txt
 # Original Encoding: iso-8859-1
 ```
+
+### Upall
+
+Update and upgrade [oh-my-zsh] [homebrew] and brew installed things
+
+#### Installation
+
+```shell
+$ brew install rogeriopradoj/bin/upall
+```
+
+#### Usage
+
+```shell
+$ upall
+# upall: [oh-my-zsh] Upgrading
+# .
+# upall: [Homebrew] Updating
+# .
+# upall: [Homebrew] Upgrading all formulas
+# .
+```
