@@ -1,10 +1,22 @@
 #!/usr/bin/env bash
 
-if ! hash terminal-notifier 2>/dev/null; then
+[[ "$1" == "--version" ]] && {
+    version="1.0.0-beta"
+    build=""
+
+    if hash sha2 &>/dev/null && hash grep &>/dev/null && hash cut &>/dev/null && hash xargs &>/dev/null; then
+        build="+$(sha2 $0 | grep SHA-256 | cut -f2- -d'=' | xargs)"
+    fi
+
+    printf "%s version %s%s\n" 'notify' $version $build
+    exit 0
+}
+
+if ! hash terminal-notifier &>/dev/null; then
     echo "terminal-notifier not found (Project page: https://github.com/alloy/terminal-notifier)";
     exit 1
 fi
 
 [[ "$1" == "" ]] && MESSAGE="Done" || MESSAGE="$1"
 
-terminal-notifier -message "$MESSAGE" -title "Notify from [$(pwd)]" -sound "default" -activate "com.googlecode.iterm2";
+terminal-notifier -message "$MESSAGE" -title "Notify from [$(pwd)]" -sound "default" -activate "com.googlecode.iterm2"
