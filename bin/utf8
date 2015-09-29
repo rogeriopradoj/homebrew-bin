@@ -8,7 +8,7 @@
         build="+$(sha2 $0 | grep SHA-256 | cut -f2- -d'=' | xargs)"
     fi
 
-    printf "%s version %s%s\n" 'notify' $version $build
+    printf "%s version %s%s\n" 'utf8' $version $build
     exit 0
 }
 
