@@ -15,16 +15,36 @@
 ZSH=$HOME/.oh-my-zsh
 if [ -f "$ZSH/tools/upgrade.sh" ]; then
   printf '\033[0;32m%s\033[0m\n' 'upall: [oh-my-zsh] Upgrading'
+  printf '\033[0;32m%s\033[0m\n' '//'
   env ZSH=$ZSH bash $ZSH/tools/upgrade.sh
   echo '.'
+  printf '\033[0;32m%s\033[0m\n' '\\'
 fi
 
 if hash brew &>/dev/null; then
   printf '\033[0;32m%s\033[0m\n' 'upall: [Homebrew] Updating'
+  printf '\033[0;32m%s\033[0m\n' '//'
   brew update
   echo '.'
+  printf '\033[0;32m%s\033[0m\n' '\\'
 
   printf '\033[0;32m%s\033[0m\n' 'upall: [Homebrew] Upgrading all formulas'
+  printf '\033[0;32m%s\033[0m\n' '//'
   brew upgrade --all
   echo '.'
+  printf '\033[0;32m%s\033[0m\n' '\\'
+fi
+
+if hash composer &>/dev/null; then
+  printf '\033[0;32m%s\033[0m\n' 'upall: [Composer] Updating'
+  printf '\033[0;32m%s\033[0m\n' '//'
+  composer self-update
+  echo '.'
+  printf '\033[0;32m%s\033[0m\n' '\\'
+
+  printf '\033[0;32m%s\033[0m\n' 'upall: [Composer] Updating global packages'
+  printf '\033[0;32m%s\033[0m\n' '//'
+  composer global update
+  echo '.'
+  printf '\033[0;32m%s\033[0m\n' '\\'
 fi
