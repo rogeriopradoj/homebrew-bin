@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 [[ "$1" == "--version" ]] && {
-    version="1.0.0-beta"
+    version="1.0.0"
     build=""
 
     if hash sha2 &>/dev/null && hash grep &>/dev/null && hash cut &>/dev/null && hash xargs &>/dev/null; then
