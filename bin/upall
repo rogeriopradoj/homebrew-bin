@@ -22,7 +22,13 @@ if [ -f "$ZSH/tools/upgrade.sh" ]; then
 fi
 
 if hash brew &>/dev/null; then
-  printf '\033[0;32m%s\033[0m\n' 'upall: [Homebrew] Updating'
+  printf '\033[0;32m%s\033[0m\n' 'upall: [Homebrew] Updating - first run'
+  printf '\033[0;32m%s\033[0m\n' '//'
+  brew update
+  echo '.'
+  printf '\033[0;32m%s\033[0m\n' '\\'
+
+  printf '\033[0;32m%s\033[0m\n' 'upall: [Homebrew] Updating - second run'
   printf '\033[0;32m%s\033[0m\n' '//'
   brew update
   echo '.'

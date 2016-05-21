@@ -70,7 +70,9 @@ $ brew install rogeriopradoj/bin/upall
 $ upall
 # upall: [oh-my-zsh] Upgrading
 # .
-# upall: [Homebrew] Updating
+# upall: [Homebrew] Updating - first run
+# .
+# upall: [Homebrew] Updating - second run
 # .
 # upall: [Homebrew] Upgrading all formulas
 # .
