@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 [[ "$1" == "--version" ]] && {
-    version="1.0.0"
+    version="1.1.0"
     build=""
 
     if hash sha2 &>/dev/null && hash grep &>/dev/null && hash cut &>/dev/null && hash xargs &>/dev/null; then
@@ -37,6 +37,14 @@ if hash brew &>/dev/null; then
   printf '\033[0;32m%s\033[0m\n' 'upall: [Homebrew] Upgrading all formulas'
   printf '\033[0;32m%s\033[0m\n' '//'
   brew upgrade --all
+  echo '.'
+  printf '\033[0;32m%s\033[0m\n' '\\'
+fi
+
+if hash mas &>/dev/null; then
+  printf '\033[0;32m%s\033[0m\n' 'upall: [mas] Upgrading installed applications'
+  printf '\033[0;32m%s\033[0m\n' '//'
+  mas upgrade
   echo '.'
   printf '\033[0;32m%s\033[0m\n' '\\'
 fi
