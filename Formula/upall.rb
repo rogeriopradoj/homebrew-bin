@@ -1,9 +1,9 @@
 class Upall < Formula
-  desc "Update and upgrade [oh-my-zsh], [homebrew], [mas], [composer]"
+  desc "Update and upgrade [oh-my-zsh], [homebrew], [cask], [mas], [composer]"
   homepage "https://rogeriopradoj.github.io/homebrew-bin/#upall"
   url "https://raw.githubusercontent.com/rogeriopradoj/homebrew-bin/master/bin/upall"
-  version "1.1.1"
-  sha256 "ac132c0f30a8aa90be216ba183da341e97702cd8ae91e4a894101eff347e971a"
+  version "1.2.0"
+  sha256 "95c2b5124d071eb4484ee948db0863138662edc2a036b42e1aae1965b5a60a92"
 
   def install
     bin.install "upall"

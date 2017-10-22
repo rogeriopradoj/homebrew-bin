@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 [[ "$1" == "--version" ]] && {
-    version="1.1.1"
+    version="1.2.0"
     build=""
 
     if hash sha2 &>/dev/null && hash grep &>/dev/null && hash cut &>/dev/null && hash xargs &>/dev/null; then
@@ -22,21 +22,23 @@ if [ -f "$ZSH/tools/upgrade.sh" ]; then
 fi
 
 if hash brew &>/dev/null; then
-  printf '\033[0;32m%s\033[0m\n' 'upall: [Homebrew] Updating - first run'
+  printf '\033[0;32m%s\033[0m\n' 'upall: [homebrew] Updating'
   printf '\033[0;32m%s\033[0m\n' '//'
   brew update
   echo '.'
   printf '\033[0;32m%s\033[0m\n' '\\'
 
-  printf '\033[0;32m%s\033[0m\n' 'upall: [Homebrew] Updating - second run'
-  printf '\033[0;32m%s\033[0m\n' '//'
-  brew update
-  echo '.'
-  printf '\033[0;32m%s\033[0m\n' '\\'
-
-  printf '\033[0;32m%s\033[0m\n' 'upall: [Homebrew] Upgrading all formulas'
+  printf '\033[0;32m%s\033[0m\n' 'upall: [homebrew] Upgrading all formulas'
   printf '\033[0;32m%s\033[0m\n' '//'
   brew upgrade
+  echo '.'
+  printf '\033[0;32m%s\033[0m\n' '\\'
+fi
+
+if hash brew cu &>/dev/null; then
+  printf '\033[0;32m%s\033[0m\n' 'upall: [homebrew-cask] Upgrading all outdated casks'
+  printf '\033[0;32m%s\033[0m\n' '//'
+  brew cu --all --yes
   echo '.'
   printf '\033[0;32m%s\033[0m\n' '\\'
 fi
@@ -50,13 +52,13 @@ if hash mas &>/dev/null; then
 fi
 
 if hash composer &>/dev/null; then
-  printf '\033[0;32m%s\033[0m\n' 'upall: [Composer] Updating'
+  printf '\033[0;32m%s\033[0m\n' 'upall: [composer] Updating'
   printf '\033[0;32m%s\033[0m\n' '//'
   composer self-update
   echo '.'
   printf '\033[0;32m%s\033[0m\n' '\\'
 
-  printf '\033[0;32m%s\033[0m\n' 'upall: [Composer] Updating global packages'
+  printf '\033[0;32m%s\033[0m\n' 'upall: [composer] Updating global packages'
   printf '\033[0;32m%s\033[0m\n' '//'
   composer global update
   echo '.'

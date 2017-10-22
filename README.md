@@ -56,7 +56,7 @@ $ utf8 text.txt # not-utf8, i.e. iso-8859-1
 
 ### Upall
 
-Update and upgrade [oh-my-zsh] [homebrew] and brew installed things
+Update and upgrade [oh-my-zsh], [homebrew], [cask], [mas], [composer]
 
 #### Installation
 
@@ -70,10 +70,8 @@ $ brew install rogeriopradoj/bin/upall
 $ upall
 # upall: [oh-my-zsh] Upgrading
 # .
-# upall: [Homebrew] Updating - first run
+# upall: [homebrew] Updating
 # .
-# upall: [Homebrew] Updating - second run
-# .
-# upall: [Homebrew] Upgrading all formulas
+# upall: [homebrew] Upgrading all formulas
 # .
 ```
