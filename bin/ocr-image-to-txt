@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+[[ "$1" == "--version" ]] && {
+    version="1.0.0"
+    build=""
+
+    if hash sha2 &>/dev/null && hash grep &>/dev/null && hash cut &>/dev/null && hash xargs &>/dev/null; then
+        build="+$(sha2 $0 | grep SHA-256 | cut -f2- -d'=' | xargs)"
+    fi
+
+    printf "%s version %s%s\n" 'ocr-image-to-txt' $version $build
+    exit 0
+}
+
+if ! hash tesseract &>/dev/null; then
+    echo "tesseract not found (Project page: https://github.com/tesseract-ocr/)";
+    exit 1
+fi
+
+ocr_image_to_txt()
+{
+    imagename=$1
+    outputbase=$(basename "$1")
+    
+    echo '.'
+    echo "    > Image source: $imagename"
+    echo "    > Txt output: $outputbase.txt"
+    echo '.'
+
+    tesseract "$imagename" "$outputbase" -l por+eng
+}
+
+shopt -s extglob
+
+search_dir=$(pwd)
+search_pattern='@(*.jpg|*.jpeg|*.png)'
+total_images=$(expr $(ls -l "$search_dir"/$search_pattern &>/dev/null | wc -l) + 0)
+
+echo "> Total images: $total_images"
+
+for entry in "$search_dir"/$search_pattern
+do
+  if [ -f "$entry" ];then
+    ocr_image_to_txt "$entry"
+  else
+    echo '.'
+    echo "    > No image files in this folder, $search_dir, "
+    echo "    >   using pattern, $search_pattern"
+    echo '.'
+  fi
+done
+
+echo
+echo "DONE"
+echo
