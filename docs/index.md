@@ -10,7 +10,7 @@ My personal scripts for installation via brew tap (http://brew.sh)
 Tap this repository:
 
 ```shell
-$ brew tap rogeriopradoj/bin
+brew tap rogeriopradoj/bin
 ```
 
 ## Binaries
@@ -22,7 +22,7 @@ Notify from your Terminal (iTerm2) using terminal-notifier
 #### Installation
 
 ```shell
-$ brew install rogeriopradoj/bin/notify
+brew install rogeriopradoj/bin/notify
 ```
 
 #### Usage
@@ -33,27 +33,6 @@ $ something-time-consuming; notify              #notifies: Done
 $ something-time-consuming; notify "a message"  #notifies: a message
 ```
 
-### Utf8
-
-Create a utf8 version of any file, prepending a _ (underline) in the generated file
-
-#### Installation
-
-```shell
-$ brew install rogeriopradoj/bin/utf8
-```
-
-#### Usage
-
-```shell
-$ utf8 text.txt # not-utf8, i.e. iso-8859-1
-# DONE
-#
-# Final Encoding: utf-8
-# Final file: _text.txt
-# Original Encoding: iso-8859-1
-```
-
 ### Upall
 
 Update and upgrade [oh-my-zsh], [homebrew], [cask], [mas], [composer]
@@ -61,7 +40,7 @@ Update and upgrade [oh-my-zsh], [homebrew], [cask], [mas], [composer]
 #### Installation
 
 ```shell
-$ brew install rogeriopradoj/bin/upall
+brew install rogeriopradoj/bin/upall
 ```
 
 #### Usage
@@ -74,4 +53,25 @@ $ upall
 # .
 # upall: [homebrew] Upgrading all formulas
 # .
+```
+
+### Utf8
+
+Create a utf8 version of any file, prepending a _ (underline) in the generated file
+
+#### Installation
+
+```shell
+brew install rogeriopradoj/bin/utf8
+```
+
+#### Usage
+
+```shell
+utf8 text.txt # not-utf8, i.e. iso-8859-1
+# DONE
+#
+# Final Encoding: utf-8
+# Final file: _text.txt
+# Original Encoding: iso-8859-1
 ```
