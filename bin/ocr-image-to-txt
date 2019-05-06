@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 [[ "$1" == "--version" ]] && {
-    version="1.0.0"
+    version="1.0.1"
     build=""
 
     if hash sha2 &>/dev/null && hash grep &>/dev/null && hash cut &>/dev/null && hash xargs &>/dev/null; then
@@ -34,7 +34,7 @@ shopt -s extglob
 
 search_dir=$(pwd)
 search_pattern='@(*.jpg|*.jpeg|*.png)'
-total_images=$(expr $(ls -l "$search_dir"/$search_pattern &>/dev/null | wc -l) + 0)
+total_images=$(expr $(ls -l "$search_dir"/$search_pattern 2>/dev/null | wc -l) + 0)
 
 echo "> Total images: $total_images"
 
