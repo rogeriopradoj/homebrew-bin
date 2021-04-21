@@ -17,6 +17,9 @@ My personal scripts for installation via [brew tap](https://docs.brew.sh/Taps) (
     - [FixAppCatalinaDosDude](#fixappcatalinadosdude)
       - [Installation](#installation-4)
       - [Usage](#usage-3)
+    - [OcrImageToTxt](#ocrimagetotxt)
+      - [Installation](#installation-5)
+      - [Usage](#usage-4)
 
 ## Requirements
 
@@ -110,4 +113,41 @@ $ fix-app-catalina-dosdude -a applicationName
 #Example: ./bin/fix-app-catalina-dosdude -a "Google Chrome"
 #Password:
 #/Applications/Google Chrome.app: replacing existing signature
+```
+
+### OcrImageToTxt
+
+Extract using ocr text from a image
+
+#### Installation
+
+```shell
+brew install rogeriopradoj/bin/ocr-image-to-txt
+```
+
+#### Usage
+
+```shell
+$ ocr-image-to-txt
+#    > Total images: 1
+#    .
+#        > Image source: /Users/rogeriopradoj/contribs/homebrew-bin/Comprovante_2019-05-01_110608 copy.jpeg
+#        > Txt output: Comprovante_2019-05-01_110608 copy.jpeg.txt
+#    .
+#    Tesseract Open Source OCR Engine v4.0.0 with Leptonica
+#    Warning: Invalid resolution 0 dpi. Using 70 instead.
+#    Estimating resolution as 321
+#
+#    DONE
+# ---
+# or
+# ---
+#    > Total images: 0
+#    .
+#        > No image files in this folder, /Users/rogerio/contribs,
+#        >   using pattern, @(*.jpg|*.jpeg|*.png)
+#    .
+#
+#    DONE
+#
 ```
