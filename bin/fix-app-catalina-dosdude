@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+[[ "$1" == "--version" ]] && {
+    version="1.0.0"
+    build=""
+
+    if hash sha2 &>/dev/null && hash grep &>/dev/null && hash cut &>/dev/null && hash xargs &>/dev/null; then
+        build="+$(sha2 $0 | grep SHA-256 | cut -f2- -d'=' | xargs)"
+    fi
+
+    printf "%s version %s%s\n" 'upall' $version $build
+    exit 0
+}
+
+helpFunction()
+{
+   echo ""
+   echo "Usage: $0 -a applicationName"
+   echo -e "\t-a Name of .app, without extension, in /Applications directory"
+   exit 1 # Exit script after printing help
+}
+
+while getopts "a:" opt
+do
+   case "$opt" in
+      a ) parameterA="$OPTARG" ;;
+      ? ) helpFunction ;; # Print helpFunction in case parameter is non-existent
+   esac
+done
+
+# Print helpFunction in case parameters are empty
+if [ -z "$parameterA" ]
+then
+   echo "Some or all of the parameters are empty";
+   helpFunction
+fi
+
+# Begin script in case all parameters are correct
+# echo "$parameterA"
+# exit 0;
+
+appPath="/Applications/${parameterA}.app"
+
+if [[ ! -e "$appPath" ]]; then
+    echo "${appPath} doesn't exist";
+    exit 1;
+fi
+
+sudo xattr -lr "$appPath"
+sudo xattr -cr "$appPath"
+sudo codesign -f -s - "$appPath"
