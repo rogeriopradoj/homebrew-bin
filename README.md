@@ -2,6 +2,19 @@
 
 My personal scripts for installation via [brew tap](https://docs.brew.sh/Taps) (http://brew.sh)
 
+  - [Requirements](#requirements)
+  - [Installation](#installation)
+  - [Binaries](#binaries)
+    - [Notify](#notify)
+      - [Installation](#installation-1)
+      - [Usage](#usage)
+    - [Utf8](#utf8)
+      - [Installation](#installation-2)
+      - [Usage](#usage-1)
+    - [Upall](#upall)
+      - [Installation](#installation-3)
+      - [Usage](#usage-2)
+
 ## Requirements
 
 - [Homebrew](http://brew.sh)
