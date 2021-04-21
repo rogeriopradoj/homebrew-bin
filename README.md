@@ -2,6 +2,22 @@
 
 My personal scripts for installation via [brew tap](https://docs.brew.sh/Taps) (http://brew.sh)
 
+  - [Requirements](#requirements)
+  - [Installation](#installation)
+  - [Binaries](#binaries)
+    - [Notify](#notify)
+      - [Installation](#installation-1)
+      - [Usage](#usage)
+    - [Utf8](#utf8)
+      - [Installation](#installation-2)
+      - [Usage](#usage-1)
+    - [Upall](#upall)
+      - [Installation](#installation-3)
+      - [Usage](#usage-2)
+    - [FixAppCatalinaDosDude](#fixappcatalinadosdude)
+      - [Installation](#installation-4)
+      - [Usage](#usage-3)
+
 ## Requirements
 
 - [Homebrew](http://brew.sh)
@@ -75,4 +91,23 @@ $ upall
 # .
 # upall: [homebrew] Upgrading all formulas
 # .
+```
+
+### FixAppCatalinaDosDude
+
+Fix broken .apps in Catalina OS patched with Dosdude tools
+
+#### Installation
+
+```shell
+$ brew install rogeriopradoj/bin/fix-app-catalina-dosdude
+```
+
+#### Usage
+
+```shell
+$ fix-app-catalina-dosdude -a applicationName
+#Example: ./bin/fix-app-catalina-dosdude -a "Google Chrome"
+#Password:
+#/Applications/Google Chrome.app: replacing existing signature
 ```
