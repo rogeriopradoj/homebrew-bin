@@ -17,11 +17,14 @@ My personal scripts for installation via [brew tap](https://docs.brew.sh/Taps) (
     - [FixAppCatalinaDosDude](#fixappcatalinadosdude)
       - [Installation](#installation-4)
       - [Usage](#usage-3)
-    - [OcrImageToTxt](#ocrimagetotxt)
+    - [Fixappall](#fixappall)
       - [Installation](#installation-5)
       - [Usage](#usage-4)
-    - [Gitupdate](#gitupdate)
+    - [OcrImageToTxt](#ocrimagetotxt)
       - [Installation](#installation-6)
+      - [Usage](#usage-5)
+    - [Gitupdate](#gitupdate)
+      - [Installation](#installation-7)
       - [Usage](#usage-6)
 
 ## Requirements
@@ -116,6 +119,40 @@ $ fix-app-catalina-dosdude -a applicationName
 #Example: ./bin/fix-app-catalina-dosdude -a "Google Chrome"
 #Password:
 #/Applications/Google Chrome.app: replacing existing signature
+```
+
+### Fixappall
+
+Run fix-app-catalina-dosdude in several apps in a row
+
+#### Installation
+
+```shell
+$ brew install rogeriopradoj/bin/fixappall
+```
+
+#### Usage
+
+Ensure that you have a `$HOME/.fixappall` file (POSIX-like), filled with app names, one by row, that will be fixed, i.e.:
+
+```txt
+Google Chrome
+Microsoft Teams
+Microsoft Edge
+LastPass
+Brave Browser
+
+```
+
+In the end, run:
+
+```shell
+$ fixappall
+# Password:
+# /Applications/Google Chrome.app: replacing existing signature
+# /Applications/Microsoft Teams.app: replacing existing signature
+# /Applications/Microsoft Edge.app: replacing existing signature
+# /Applications/LastPass.app: replacing existing signature
 ```
 
 ### OcrImageToTxt
