@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+[[ "$1" == "--version" ]] && {
+    version="1.0.0"
+    build=""
+
+    if hash sha2 &>/dev/null && hash grep &>/dev/null && hash cut &>/dev/null && hash xargs &>/dev/null; then
+        build="+$(sha2 $0 | grep SHA-256 | cut -f2- -d'=' | xargs)"
+    fi
+
+    printf "%s version %s%s\n" 'upall' $version $build
+    exit 0
+}
+
+if hash fix-app-catalina-dosdude &>/dev/null; then
+    CONFIG_FILE=$HOME/.fixappallrc
+
+    if [[ ! -f "$CONFIG_FILE" ]] ; then
+        dqt='"'
+        dollar='$'
+
+        echo "WARNING: Generate a config file in the following path: ${dollar}HOME/.fixappallrc"
+        echo ""
+        echo "The suggested content:"
+        echo ""
+        echo "Google Chrome"
+        echo "Microsoft Teams"
+        echo "Microsoft Edge"
+        echo "LastPass"
+        echo "Brave Browser"
+        echo ""
+        echo "Important: POSIX-like, ${dqt}\n${dqt} needed in the end of file"
+
+        exit 1
+    fi
+
+    declare -a apps_to_fix=()
+    i=0
+
+    while IFS= read -r line; do
+        apps_to_fix[i]=$line
+        let "i++"
+    done < "$CONFIG_FILE"
+
+    for line in "${apps_to_fix[@]}"; do
+        fix-app-catalina-dosdude -a "$line"
+    done
+fi
