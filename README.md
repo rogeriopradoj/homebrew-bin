@@ -20,6 +20,9 @@ My personal scripts for installation via [brew tap](https://docs.brew.sh/Taps) (
     - [OcrImageToTxt](#ocrimagetotxt)
       - [Installation](#installation-5)
       - [Usage](#usage-4)
+    - [Gitupdate](#gitupdate)
+      - [Installation](#installation-6)
+      - [Usage](#usage-6)
 
 ## Requirements
 
@@ -150,4 +153,29 @@ $ ocr-image-to-txt
 #
 #    DONE
 #
+```
+
+### Gitupdate
+
+Git: Checkout to main branch, pull from upstream repo and prune staled branches
+
+#### Installation
+
+```shell
+$ brew install rogeriopradoj/bin/gitupdate
+```
+
+#### Usage
+
+```shell
+$ gitupdate
+# checkout to main branch
+#   Switched to branch 'master'
+#   Your branch is up to date with 'origin/master'.
+#
+# pull from origin
+#   ..
+#   Fast-forward
+#
+# fetch pruning
 ```
